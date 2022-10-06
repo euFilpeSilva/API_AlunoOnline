@@ -1,15 +1,20 @@
 const express = require('express');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var routerNotas = require('./routes/notas');
+var routerFaltas = require('./routes/faltas');
+var routerBoletos = require('./routes/boletos');
+var routerRequerimentos = require('./routes/requerimentos');
 
 var app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use('/', routerNotas);
+app.use('/', routerFaltas);
+app.use('/', routerBoletos);
+app.use('/', routerRequerimentos);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 
 module.exports = app;
